@@ -1,0 +1,51 @@
+# Git helper functions
+# J. Leary
+# MIT License 
+
+
+# Create branch
+gitmkbranch() {
+  if [ "$1" != "" ]
+    then
+      git checkout -b $1
+      git push --set-upstream origin $1
+      git status
+  fi
+}
+
+# Remove branch
+gitrmbranch() {
+  if [ "$1" != "" ]
+    then
+      git branch -d $1
+      git push origin --delete $1
+      git status
+  fi
+}
+
+# Make Tag
+gitmktag() {
+  if [ "$1" != "" ]
+    then
+      git tag -a $1 -m "tag $1"
+      git push origin $1
+      git status
+  fi
+}
+
+# Remove Tag
+gitrmtag() {
+  if [ "$1" != "" ]
+    then
+      git tag -d $1
+      git push origin :refs/tags/$1
+      git status
+  fi
+}
+
+# Get origin of repo
+gitorigin() {
+
+  git config --get remote.origin.url
+}
+
