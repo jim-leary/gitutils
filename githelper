@@ -1,7 +1,5 @@
 # Git helper functions
 # J. Leary
-# MIT License 
-
 
 # Create branch
 gitmkbranch() {
@@ -48,4 +46,11 @@ gitorigin() {
 
   git config --get remote.origin.url
 }
+
+# Checkout git master
+gitmaster() {
+
+  git checkout master
+}
+
 
