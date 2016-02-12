@@ -1,8 +1,11 @@
 # Git helper functions
-# J. Leary
+# J. Leary 
+
+# export BASE_GIT_SERVER="http://<YOUR GIT SERVER BASE URL GOES HERE>"
 
 # Create branch
 gitmkbranch() {
+  
   if [ "$1" != "" ]
     then
       git checkout -b $1
@@ -13,6 +16,7 @@ gitmkbranch() {
 
 # Remove branch
 gitrmbranch() {
+  
   if [ "$1" != "" ]
     then
       git branch -d $1
@@ -23,6 +27,7 @@ gitrmbranch() {
 
 # Make Tag
 gitmktag() {
+  
   if [ "$1" != "" ]
     then
       git tag -a $1 -m "tag $1"
@@ -33,6 +38,7 @@ gitmktag() {
 
 # Remove Tag
 gitrmtag() {
+  
   if [ "$1" != "" ]
     then
       git tag -d $1
@@ -53,4 +59,20 @@ gitmaster() {
   git checkout master
 }
 
+# Clone a repo
+gitclone() {
+
+  if [ "$1" != "" ]
+    then
+      printf "\nCloning $BASE_GIT_SERVER/$1\n"
+      git clone $AMADEUS_GIT_SERVER/$1
+  fi
+}
+
+# Display server
+
+gitserver() {
+
+  printf "\n$BASE_GIT_SERVER\n"
+}
 
