@@ -69,6 +69,19 @@ gitclone() {
   fi
 }
 
+# Commit and push
+gitcpush() {
+
+  if [ "$1" != "" ]
+    then
+      printf "\nCommit and push to server with comment \"$1\"\n"
+      git commit -am "$1"
+      git push
+    else
+      printf "n\You must provide a comment for the commit\n"
+  fi
+}
+
 # Display server
 
 gitserver() {
