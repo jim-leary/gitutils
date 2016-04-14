@@ -3,6 +3,8 @@
 
 # export BASE_GIT_SERVER="http://<YOUR GIT SERVER BASE URL GOES HERE>"
 
+export PS1_DEFAULT=$PS1
+
 # Create branch
 gitmkbranch() {
   
@@ -83,9 +85,21 @@ gitcpush() {
 }
 
 # Display server
-
 gitserver() {
 
   printf "\n$BASE_GIT_SERVER\n"
+}
+
+# Get Status
+gitst() {
+
+  git status
+}
+
+# Set Prompt to branch
+git_prompt() {
+
+    gitb=$(grep -Po "(?<=## ).*(?=\.\.\.)" <<< $(git status -sb 2>&1))
+    PS1="\n\e[30m$gitb$P$PS1_DEFAULT"
 }
 
