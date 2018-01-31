@@ -2,6 +2,7 @@
 # J. Leary 
 
 # export BASE_GIT_SERVER="http://<YOUR GIT SERVER BASE URL GOES HERE>"
+export BASE_GIT_SERVER="git@github.com:criticalstack"
 
 # Create branch
 gitmkbranch() {
@@ -65,7 +66,7 @@ gitclone() {
   if [ "$1" != "" ]
     then
       printf "\nCloning $BASE_GIT_SERVER/$1\n"
-      git clone $AMADEUS_GIT_SERVER/$1
+      git clone $BASE_GIT_SERVER/$1
   fi
 }
 
